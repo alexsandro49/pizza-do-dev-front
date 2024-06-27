@@ -1,6 +1,9 @@
 import './HomePage.css'
+import FormType from '../enums/FormType'
+import SignInForm from '../sign-in-form/SignInForm'
+import SignUpForm from '../sign-up-form/SignUpForm'
 
-function HomePage() {
+function HomePage(props: IProps) {
     return (
         <>
             <div id="container">
@@ -9,17 +12,24 @@ function HomePage() {
                 <div id="login-form">
                     <form>
                         <h1>Pizza do Dev</h1>
-                        <h2>Acesse a sua conta</h2>
-                        <input type="email" name="email" placeholder="Email"/>
-                        <input type="password" name="password" placeholder="Senha"/>
-                        <a>Esqueci a minha senha</a>
-                        <button type="submit">Entrar</button>
-                        <p>Ainda não criou sua conta? <a><strong>Cadastre-se</strong></a></p>
+                        <FormSelector formType={props.formType} />
                     </form>
                 </div> 
             </div> 
         </>
     )
+}
+
+function FormSelector(props: IProps) {
+    if (props.formType === FormType.signIn) {
+        return ( <SignInForm /> )
+    } else {
+        return ( <SignUpForm /> )
+    }
+}
+
+interface IProps {
+    formType: FormType
 }
  
 export default HomePage

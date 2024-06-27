@@ -1,0 +1,17 @@
+#checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    height: 25px;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    align-self: center;
+}
+
+label {
+    font-size: 12px;
+}
